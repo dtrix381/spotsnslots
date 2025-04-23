@@ -83,22 +83,23 @@
     const resultDiv = document.getElementById('result');
 
     input.addEventListener('input', () => {
-      const query = input.value.trim();
-      if (!query) return resultDiv.innerHTML = '';
+  const query = input.value.trim();
+  if (!query) return resultDiv.innerHTML = '';
 
-      const results = fuse.search(query);
-      if (results.length > 0) {
-        const match = results[0].item;
-        resultDiv.innerHTML = `
-          <div class="slot-card">
-            <img src="${match.image}" alt="${match.name}" />
-            <h2>${match.name}</h2>
-          </div>
-        `;
-      } else {
-        resultDiv.innerHTML = '<p>No match found.</p>';
-      }
-    });
+  const results = fuse.search(query);
+  if (results.length > 0) {
+    const match = results[0].item;
+    resultDiv.innerHTML = `
+      <div class="slot-card">
+        <img src="${match.image}" alt="${match.name}" />
+        <h2>${match.name}</h2>
+      </div>
+    `;
+  } else {
+    resultDiv.innerHTML = '<p>No match found.</p>';
+  }
+});
+
   </script>
 </body>
 </html>
